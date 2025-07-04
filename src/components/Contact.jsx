@@ -1,8 +1,7 @@
 import { useState } from 'react';
-
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [success, setSuccess] = useState(null); // Added here
+  const [success, setSuccess] = useState(null);
 
   const handleChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -16,6 +15,7 @@ export default function Contact() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
+
 
       if (response.ok) {
         setSuccess(true);
@@ -31,11 +31,11 @@ export default function Contact() {
   };
 
   return (
-    <section className="min-h-screen bg-white p-8 pt-24">
-      <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">Contact Me</h2>
+    <section className="min-h-screen p-8 pt-24 bg-white">
+      <h2 className="mb-10 text-3xl font-bold text-center md:text-4xl">Contact Me</h2>
       <form
         onSubmit={handleSubmit}
-        className="max-w-2xl mx-auto bg-gray-50 p-6 rounded-2xl shadow space-y-4"
+        className="max-w-2xl p-6 mx-auto space-y-4 shadow bg-gray-50 rounded-2xl"
       >
         <input
           type="text"
@@ -64,17 +64,17 @@ export default function Contact() {
           className="w-full p-3 border rounded"
           required
         />
-        <button type="submit" className="bg-blue-600 text-white px-6 py-3 rounded-2xl hover:bg-blue-700">
+        <button type="submit" className="px-6 py-3 text-white bg-blue-600 rounded-2xl hover:bg-blue-700">
           Send Message
         </button>
       </form>
 
       {/* Optional: display a success or error message */}
       {success === true && (
-        <p className="text-green-600 text-center mt-4">Message sent successfully!</p>
+        <p className="mt-4 text-center text-green-600">Message sent successfully!</p>
       )}
       {success === false && (
-        <p className="text-red-600 text-center mt-4">Failed to send message. Please try again.</p>
+        <p className="mt-4 text-center text-red-600">Failed to send message. Please try again.</p>
       )}
     </section>
   );
