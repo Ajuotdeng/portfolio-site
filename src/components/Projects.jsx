@@ -7,6 +7,13 @@ const projects = [
     repo: 'https://github.com/Ajuotdeng/Pan-mabur-web',
   },
 
+   {
+    title: 'Portfolio Site',
+    description: 'This very portfolio, built with React and styled with Tailwind CSS.',
+    tech: ['React', 'Javascript', 'Tailwind'],
+    live: 'https://ajuotdeng.netlify.app',
+    repo: 'https://github.com/Ajuotdeng/portfolio-site',
+  },
 
   {
     title: 'Motor Repair Website',
@@ -15,13 +22,7 @@ const projects = [
     live: 'https://your-project-link.com',
     repo: 'https://github.com/Ajuotdeng/motor-repair',
   },
-  {
-    title: 'Portfolio Site',
-    description: 'This very portfolio, built with React and styled with Tailwind CSS.',
-    tech: ['React', 'Javascript', 'Tailwind'],
-    live: 'https://portfolio.netlify.app',
-    repo: 'https://github.com/Ajuotdeng/portfolio-site',
-  },
+ 
 ];
 
 export default function Projects() {
