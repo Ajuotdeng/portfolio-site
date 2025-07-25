@@ -1,7 +1,7 @@
 export default function About() {
   return (
     <section className="flex flex-col items-center justify-center min-h-screen p-6 bg-white">
-      <h2 className="mb-6 text-3xl font-bold text-center md:text-4xl">About Me</h2>
+      <h2 className="mb-6 text-3xl font-bold text-center md:text-4xl">Ajuot Here</h2>
 
       <div className="flex flex-col items-center max-w-4xl gap-6 md:flex-row md:items-start md:gap-10">
         <img
