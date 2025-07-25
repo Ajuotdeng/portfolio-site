@@ -1,17 +1,26 @@
 const projects = [
   {
+    title: 'Pan-mabur web',
+    description: 'This web was built with React and styled with Tailwind CSS',
+    tech: ['React', 'Javascript', 'html','Tailwind CSS'],
+    live: 'https://panmabur.netlify.app',
+    repo: 'https://github.com/Ajuotdeng/Pan-mabur-web',
+  },
+
+
+  {
     title: 'Motor Repair Website',
     description: 'Full-stack booking platform using the MERN stack.',
     tech: ['React', 'Tailwind', 'Node.js', 'Javascript', 'MongoDB'],
     live: 'https://your-project-link.com',
-    repo: 'https://github.com/ajuotdeng/motor-repair',
+    repo: 'https://github.com/Ajuotdeng/motor-repair',
   },
   {
     title: 'Portfolio Site',
     description: 'This very portfolio, built with React and styled with Tailwind CSS.',
     tech: ['React', 'Javascript', 'Tailwind'],
-    live: 'https://yourportfolio.com',
-    repo: 'https://github.com/ajuotdeng/portfolio-site',
+    live: 'https://portfolio.netlify.app',
+    repo: 'https://github.com/Ajuotdeng/portfolio-site',
   },
 ];
 

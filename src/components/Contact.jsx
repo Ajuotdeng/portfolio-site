@@ -69,7 +69,7 @@ export default function Contact() {
         </button>
       </form>
 
-      {/* Optional: display a success or error message */}
+      {/* display a success or error message */}
       {success === true && (
         <p className="mt-4 text-center text-green-600">Message sent successfully!</p>
       )}
