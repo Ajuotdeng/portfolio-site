@@ -1,30 +1,38 @@
 import { useState } from 'react';
+
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [success, setSuccess] = useState(null);
+  const [responseMessage, setResponseMessage] = useState('');
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:5000/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch('/http://0.0.0.0/0:5000/contact', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify(formData),
+    })
 
+      const result = await response.json();
+      console.log('Server response:', result);
 
       if (response.ok) {
         setSuccess(true);
+        setResponseMessage(result.message || 'Message sent successfully!');
       } else {
         setSuccess(false);
-      }
+        setResponseMessage(result.message || 'Something went wrong.');
+      } 
+
     } catch (error) {
       console.error('Error:', error);
       setSuccess(false);
+      setResponseMessage('Failed to connect to server.');
     }
 
     setFormData({ name: '', email: '', message: '' });
@@ -64,17 +72,19 @@ export default function Contact() {
           className="w-full p-3 border rounded"
           required
         />
-        <button type="submit" className="px-6 py-3 text-white bg-blue-600 rounded-2xl hover:bg-blue-700">
+        <button
+          type="submit"
+          className="px-6 py-3 text-white bg-blue-600 rounded-2xl hover:bg-blue-700"
+        >
           Send Message
         </button>
       </form>
 
-      {/* display a success or error message */}
-      {success === true && (
-        <p className="mt-4 text-center text-green-600">Message sent successfully!</p>
-      )}
-      {success === false && (
-        <p className="mt-4 text-center text-red-600">Failed to send message. Please try again.</p>
+      {/* Display server response dynamically */}
+      {responseMessage && (
+        <p className={`mt-4 text-center ${success ? 'text-green-600' : 'text-red-600'}`}>
+          {responseMessage}
+        </p>
       )}
     </section>
   );

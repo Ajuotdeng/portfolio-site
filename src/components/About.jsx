@@ -23,13 +23,16 @@ export default function About() {
         </div>
       </div>
 
-      <a
-        href="/resume.pdf"
-        download
-        className="inline-block px-6 py-3 mt-8 border border-gray-800 rounded-2xl hover:bg-gray-100"
-      >
-        Download Resume
-      </a>
+      <a 
+  href="https://docs.google.com/document/d/1MsObnYnRTG5lqIHHwnvHw2JS3KGap7kJB8YJpuS2lVE/export?format=pdf" 
+  download
+  target="_blank"
+  rel="noopener noreferrer"
+  className="px-4 py-2 text-white bg-blue-600 rounded-lg"
+>
+  Download Resume
+</a>
+
     </section>
   );
 }
