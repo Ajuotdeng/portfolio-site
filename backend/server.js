@@ -77,7 +77,7 @@ app.post('/contact', async (req, res) => {
     return res.status(500).json({
       message: 'Message saved, but email could not be sent.',
       error: err.message,
-      stack: err.stack
+      stack: err.stack       
     });
   }
 });

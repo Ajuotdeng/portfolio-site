@@ -9,16 +9,16 @@ export default function Home() {
   <p className="max-w-md text-base text-gray-600 sm:text-lg md:text-xl">
     Front-end Developer crafting modern web experiences using the MERN Stack.
   </p>
-  <div className="mt-8 flex flex-col sm:flex-row gap-4">
+  <div className="flex flex-col gap-4 mt-8 sm:flex-row">
     <Link
       to="/projects"
-      className="px-6 py-3 text-white bg-blue-600 shadow rounded-2xl hover:bg-blue-700 text-center"
+      className="px-6 py-3 text-center text-white bg-blue-600 shadow rounded-2xl hover:bg-blue-700"
     >
       View Projects
     </Link>
     <Link
       to="/contact"
-      className="px-6 py-3 text-blue-600 border border-blue-600 rounded-2xl hover:bg-blue-50 text-center"
+      className="px-6 py-3 text-center text-blue-600 border border-blue-600 rounded-2xl hover:bg-blue-50"
     >
       Contact Me
     </Link>
