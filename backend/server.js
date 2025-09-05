@@ -7,7 +7,7 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+app.use(cors({ origin: 'http://localhost:3000' }));
 app.use(express.json());
 
 // MongoDB Atlas Connection
@@ -25,7 +25,15 @@ app.use(express.json());
 const Contact = require('./models/Contact');
 
 // Routes
-app.get('/', (req, res) => res.send('🚀 Server is running...'));
+app.get('/contacts', async (req, res) => {
+  try {
+    const contacts = await Contact.find().sort({ createdAt: -1 });
+    return res.status(200).json(contacts);
+  } catch (err) {
+    console.error('❌ Error fetching contacts:', err.message);
+    return res.status(500).json({ message: 'Failed to fetch contacts.' });
+  }
+});
 
 // Contact Route
 app.post('/contact', async (req, res) => {
@@ -40,36 +48,36 @@ app.post('/contact', async (req, res) => {
     const newContact = await Contact.create({ name, email, message });
     console.log('📥 Contact saved:', newContact);
 
-    try {
-      const transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-          user: process.env.EMAIL_USER,
-          pass: process.env.EMAIL_PASS,
-        },
-      });
+    // Debug environment variables
+    console.log('EMAIL_USER:', process.env.EMAIL_USER);
+    console.log('EMAIL_PASS:', process.env.EMAIL_PASS ? 'Loaded' : 'Not loaded');
 
-      await transporter.sendMail({
-        from: process.env.EMAIL_USER,
-        to: process.env.EMAIL_USER,
-        replyTo: email,
-        subject: `Portfolio Contact Form: ${name}`,
-        text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
-      });
+    // Create transporter and send email
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      },
+    });
 
-      return res.status(200).json({ message: 'Message sent and saved successfully!' });
-    } catch (emailErr) {
-      console.error('⚠ Email sending error:', emailErr.message);
-      return res.status(200).json({
-        message: 'Message saved, but email could not be sent.',
-        emailError: emailErr.message
-      });
-    }
-  } catch (dbError) {
-    console.error('❌ Database error:', dbError);
+    const info = await transporter.sendMail({
+      from: process.env.EMAIL_USER,
+      to: process.env.EMAIL_USER,
+      replyTo: email,
+      subject: `Portfolio Contact Form: ${name}`,
+      text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
+    });
+
+    console.log('📧 Email info:', info);
+    return res.status(200).json({ message: 'Message sent and saved successfully!' });
+
+  } catch (err) {
+    console.error('❌ Error in /contact route:', err);
     return res.status(500).json({
-      message: 'Failed to save message to the database.',
-      error: dbError.message
+      message: 'Message saved, but email could not be sent.',
+      error: err.message,
+      stack: err.stack
     });
   }
 });
