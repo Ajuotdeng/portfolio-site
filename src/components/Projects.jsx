@@ -19,8 +19,8 @@ const projects = [
     title: 'Motor Repair Website',
     description: 'Full-stack booking platform using the MERN stack.',
     tech: ['React', 'Tailwind', 'Node.js', 'Javascript', 'MongoDB'],
-    live: 'https://your-project-link.com',
-    repo: 'https://github.com/Ajuotdeng/motor-repair',
+    live: 'https://vercel.veldtauto.netlify.app',
+    repo: 'https://github.com/Ajuotdeng/veldt-Auto',
   },
  
 ];

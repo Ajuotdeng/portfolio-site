@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <footer className="bg-blue-900 text-gray-200 border-t-4 border-[#fcd346] py-8 mt-16">
+    <footer className="bg-gray-800 text-white border-t-4 border-[#fcd346] py-8 mt-16">
       <div className="grid max-w-6xl grid-cols-1 gap-6 px-4 mx-auto md:grid-cols-3">
         {/* Left Column */}
         <div>
@@ -25,18 +25,8 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link to="/about" className="hover:text-[#fcd346]">
-                About
-              </Link>
-            </li>
-            <li>
               <Link to="/projects" className="hover:text-[#fcd346]">
                 Projects
-              </Link>
-            </li>
-            <li>
-              <Link to="/contact" className="hover:text-[#fcd346]">
-                Contact
               </Link>
             </li>
           </ul>
