@@ -46,7 +46,7 @@ export default function Home() {
       </section>
 
       {/* Projects Preview Section */}
-      <section  className="py-12 bg-gray-50 md:py-16">
+      <section  className="py-12 md:py-16">
         <div className="container px-4 mx-auto">
           <Projects />
         </div>

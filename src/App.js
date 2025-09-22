@@ -8,6 +8,7 @@ import Footer from './components/Footer.jsx';
 
 function App() {
   return (
+      <div className="min-h-screen bg-gray-100 text-gray-900">
     <Router>
       <Navbar />
       <Routes>
@@ -17,7 +18,8 @@ function App() {
       </Routes>
        <Footer/>
     </Router>
-  );
+    </div>
+  ); 
 }
 
 export default App;
