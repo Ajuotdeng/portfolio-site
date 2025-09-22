@@ -36,7 +36,7 @@ export default function Contact() {
   };
 
   return (
-    <section className="flex items-center justify-center min-h-screen p-6 bg-gradient-to-r from-blue-50 to-indigo-100">
+    <section className="flex items-center justify-center min-h-screen p-6 bg-gradient-to-r from-gray-50 to-gray-100">
       <div className="w-full max-w-2xl p-8 bg-white shadow-lg rounded-2xl">
         <h2 className="mb-6 text-3xl font-bold text-center text-gray-800">
           Contact Me

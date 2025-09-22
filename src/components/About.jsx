@@ -18,7 +18,7 @@ export default function About() {
             My tech stack includes JavaScript, React, Node.js, Express, MongoDB, PHP, and Laravel. I also love working with Tailwind CSS for modern UI design.
           </p>
           <p className="text-gray-700">
-            When I'm not coding, I’m probably exploring new tech, contributing to open-source, or enjoying good coffee.
+            When I'm not coding, I’m probably exploring new tech, contributing to open-source, or watching football.
           </p>
         </div>
       </div>

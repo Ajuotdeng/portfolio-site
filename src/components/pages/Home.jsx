@@ -13,7 +13,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gray-100">
       {/* Hero Section */}
       <section className="flex flex-col items-center justify-center min-h-screen px-4 py-12 text-center">
         <h1 className="mb-4 text-3xl font-bold sm:text-4xl md:text-5xl">
@@ -46,7 +46,7 @@ export default function Home() {
       </section>
 
       {/* Projects Preview Section */}
-      <section  className="py-12 md:py-16 bg-gray-50">
+      <section  className="py-12 bg-gray-50 md:py-16">
         <div className="container px-4 mx-auto">
           <Projects />
         </div>
